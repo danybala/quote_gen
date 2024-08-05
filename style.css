@@ -74,12 +74,13 @@ button:active {
 }
 
 .x-button:hover {
-	color: blue;
+	color: black;
 }
 
 .fa-x {
 	font-size: 1.5rem;
 }
+
 /* Media Query */
 
 @media screen and (max-width: 1000px) {
