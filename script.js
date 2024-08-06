@@ -27,7 +27,7 @@ function newQuote() {
 	if (!quote.author) {
 		authorText.textContent = "Unknown";
 	} else {
-		authorText.textContent = quote.author;
+		authorText.textContent = quote.author.split(',')[0];
 	}
 
 	if (quote.text.length > 150) {
