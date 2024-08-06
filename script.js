@@ -24,25 +24,25 @@ function newQuote() {
 	loading();
 	// pick a random quote from apiQuotes array
 	const quote = apiData[Math.floor(Math.random() * apiData.length)];
-	if (!quote.a) {
+	if (!quote.author) {
 		authorText.textContent = "Unknown";
 	} else {
-		authorText.textContent = quote.a;
+		authorText.textContent = quote.author;
 	}
 
-	if (quote.q.length > 150) {
+	if (quote.text.length > 150) {
 		quoteText.classList.add("long-quote");
 	} else {
 		quoteText.classList.remove("long-quote");
 	}
-	quoteText.textContent = quote.q;
+	quoteText.textContent = quote.text;
 	complete();
 }
 
-async function getData(mode) {
+async function getData() {
 	loading();
-	const proxyURL = "https://cors-anywhere.herokuapp.com/";
-	const apiURL = `${proxyURL}https://zenquotes.io/api/${mode}/`;
+	// const proxyURL = "https://cors-anywhere.herokuapp.com/";
+	const apiURL = `https://type.fit/api/quotes`;
 	try {
 		const response = await fetch(apiURL);
 		apiData = await response.json();
@@ -62,5 +62,5 @@ newQuoteBtn.addEventListener("click", newQuote);
 xButton.addEventListener("click", tweetQuote);
 
 // On load
-getData("quotes");
+getData();
 complete();
