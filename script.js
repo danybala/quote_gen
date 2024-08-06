@@ -1,5 +1,11 @@
 // get quotes from api
 
+const quoteContainer = document.getElementById("quote-container");
+const quoteText = document.getElementById("quote");
+const authorText = document.getElementById("author");
+const xButton = document.getElementById("x");
+const newQuoteBtn = document.getElementById("new-quote");
+
 let apiData = [];
 
 
@@ -8,8 +14,8 @@ function newQuote() {
     // pick a random quote from apiQuotes array
 
 	const quote = apiData[Math.floor(Math.random() * apiData.length)];
-	console.log(quote);
-
+	authorText.textContent = quote.a;
+	quoteText.textContent = quote.q;
 }
 
 async function getData(mode) {
